@@ -75,10 +75,10 @@
                                 <a href="https://t-www.evoinf.co.jp/about">企業概要</a>
                                 </li>
                                 <li id="service">
-                                  <a href="https://t-www.evoinf.co.jp/services.php">サービス概要</a>
+                                  <a href="https://t-www.evoinf.co.jp/service">サービス概要</a>
                                 </li>
                                 <li id="contact">
-                                  <a href="https://t-www.evoinf.co.jp/contact.php">お問い合わせ</a>
+                                  <a href="https://t-www.evoinf.co.jp/contact">お問い合わせ</a>
                                 </li>
             </ul>
         </nav>
