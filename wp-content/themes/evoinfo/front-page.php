@@ -1,36 +1,6 @@
-<?php wp_head(); ?>
+<?php get_header(); ?>
 
-<!--globalNav-->
-
-<div class="globalNav">
-    <div class="container">
-        <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-        </div>
-        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-            <ul class="nav navbar-nav" style="margin:0 auto;">
-                                <li id="home">
-                                <a href="https://www.evoinf.co.jp/">ホーム</a>
-                                </li>
-                                <li id="about">
-                                <a href="https://www.evoinf.co.jp/about.php">企業概要</a>
-                                </li>
-                                <li id="service">
-                                  <a href="https://www.evoinf.co.jp/services.php">サービス概要</a>
-                                </li>
-                                <li id="contact">
-                                  <a href="https://www.evoinf.co.jp/contact.php">お問い合わせ</a>
-                                </li>
-            </ul>
-        </nav>
-    </div>
-</div>      
-<!--//globalNav-->    <!--mainVisual-->
+<!--mainVisual-->
 
 <div class="pageVisualWrapper visualToppage">
     <div class="headerText container">
@@ -161,4 +131,4 @@
 </div>
 <!-- //brandsIntro -->
 
-<?php wp_footer(); ?>
+<?php get_footer(); ?>
