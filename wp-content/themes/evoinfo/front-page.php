@@ -44,7 +44,7 @@
             <div class="serviceBox col-xs-12 col-sm-3 col-md-3">
                 <a href="https://www.evoinf.co.jp/services.php#contents" class="servicePanel">
                     <div class="serviceImage">
-                        <img src="./assets/img/img_contents-jigyo.png" alt="コンテンツ事業" class="img-responsive">
+                        <img src="/assets/img/img_contents-jigyo.png" alt="コンテンツ事業" class="img-responsive">
                     </div>
                     <div class="serviceBody">
                         <h3>コンテンツ事業</h3>
@@ -58,7 +58,7 @@
                 <a href="https://www.evoinf.co.jp/services.php#management" class="servicePanel">
 
                     <div class="serviceImage">
-                        <img src="assets/img/img_event-management.png" alt="イベント/マネジメント事業" class="img-responsive">
+                        <img src="/assets/img/img_event-management.png" alt="イベント/マネジメント事業" class="img-responsive">
                     </div>
                     <div class="serviceBody">
                         <h3>イベント／マネジメント事業</h3>
@@ -70,7 +70,7 @@
                 <a href="https://www.evoinf.co.jp/services.php#netAd" class="servicePanel">
 
                     <div class="serviceImage">
-                        <img src="assets/img/img_netAd.jpg" alt="海外・その他事業" class="img-responsive">
+                        <img src="/assets/img/img_netAd.jpg" alt="海外・その他事業" class="img-responsive">
                     </div>
                     <div class="serviceBody">
                         <h3>ネット広告事業</h3>
@@ -80,10 +80,10 @@
                 </a>
             </div>
             <div class="serviceBox col-xs-12 col-sm-3 col-md-3">
-                <a href="https://www.evoinf.co.jp/media/" class="servicePanel">
+                <a href="https://t-www.evoinf.co.jp/mediapage/" class="servicePanel">
 
                     <div class="serviceImage">
-                        <img src="assets/img/media-top.png" alt="メディア事業" class="img-responsive">
+                        <img src="/assets/img/media-top.png" alt="メディア事業" class="img-responsive">
                     </div>
                     <div class="serviceBody">
                         <h3>メディア事業</h3>
@@ -121,7 +121,7 @@
             </li>
             <li class="col-xs-6 col-sm-3 col-md-15">
                 <a href="http://www.miraiku.co.jp/" target="_blank"><img src="https://www.evoinf.co.jp/assets/img/brand_mirakuu.png" alt="MiRAKUU" class="img-responsive"></a>
-            </li>	            
+            </li>
             <li class="col-xs-6 col-sm-3 col-md-15">
                 <a href="http://ehondanshi.com/" target="_blank"><img src="https://www.evoinf.co.jp/assets/img/brand_ehondanshi.png" alt="絵本男子" class="img-responsive"></a>
             </li>
