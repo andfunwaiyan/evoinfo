@@ -80,7 +80,11 @@
                 </a>
             </div>
             <div class="serviceBox col-xs-12 col-sm-3 col-md-3">
+<<<<<<< HEAD
                 <a href="https://t-www.evoinf.co.jp/mediapage/" class="servicePanel">
+=======
+                <a href="https://t-www.evoinf.co.jp/media/" class="servicePanel">
+>>>>>>> 50fa41259003ee901bdcb73ec23c586fbc1ebb10
 
                     <div class="serviceImage">
                         <img src="/assets/img/media-top.png" alt="メディア事業" class="img-responsive">
