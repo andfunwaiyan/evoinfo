@@ -27,7 +27,9 @@
               <?php
                   $the_query = new WP_Query( [
                      'post_type' => 'mirakuu',
-                      'posts_per_page' => 4,
+                     'posts_per_page' => 4,
+                     'orderby' => 'volid',
+                     'order' => 'DESC',
                    ]);
               ?>
               <?php if ( $the_query->have_posts()) : ?>
@@ -36,10 +38,10 @@
                           <a href="https://www.mirakuupremium.com/mirakuu/mirakuu<?php echo get_field('volid'); ?>" target="_blank">
                                 <div class="fix col_1_1 mb20">
                                     <div class="left_area">
-                                        <figure><img width="233" height="330" src="/media/wp-content/uploads/MIRAIKU_vol<?php echo get_field('volid'); ?>.jpg" class="attachment-large size-large" alt="" loading="lazy" /></figure>
+                                        <figure><img width="233" height="330" src="<?php echo get_field('image_left'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
                                     </div>
                                     <div class="right_area">
-                                        <figure><img width="233" height="330" src="/media/wp-content/uploads/MIRAIKU_vol<?php echo get_field('volid'); ?>-guest.jpg" class="attachment-large size-large" alt="" loading="lazy" /></figure>
+                                        <figure><img width="233" height="330" src="<?php echo get_field('image_right'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
                                     </div>
                                 </div>
                                 <p class="f_20 f_bold f_green mb10">
