@@ -14,7 +14,6 @@
                     <?php
                         $the_query = new WP_Query( [
                            'post_type' => 'mirakuu',
-                            'posts_per_page' => 4,
                          ]);
                     ?>
                     <?php if ( $the_query->have_posts()) : ?>

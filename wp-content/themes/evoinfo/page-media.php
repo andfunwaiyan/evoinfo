@@ -94,7 +94,7 @@
                <p class="seminar_btn t_right"><a href="ehondanshi.php" class="f_green">MORE→</a></p>
            </div>
            <div class="left_area">
-               <p><img src="/media/wp-content/themes/template03/img/top/img_02.jpg" alt=""></p>
+               <p><img src="/wp-content/themes/template03/img/top/img_02.jpg" alt=""></p>
            </div>
        </div>
       </div>
