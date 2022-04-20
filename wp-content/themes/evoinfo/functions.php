@@ -11,6 +11,7 @@
           'has_archive' => true,
           'hierarchical' => false,
           'supports' => array('title','editor','thumbnail'),
+          'taxonomies'          => array( 'category' ),
       ];
       register_post_type('mirakuu', $args);
   }

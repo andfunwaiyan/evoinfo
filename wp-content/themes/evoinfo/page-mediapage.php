@@ -19,7 +19,7 @@
                        →</a></p>
            </div>
            <div class="right_area">
-               <p><img src="wp-content/themes/template03/img/top/img_03.jpg" alt="MiRAKUU"></p>
+               <p><img src="/media/wp-content/themes/template03/img/top/img_03.jpg" alt="MiRAKUU"></p>
            </div>
        </div>
        <div class="mb80">
