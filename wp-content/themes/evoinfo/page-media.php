@@ -48,13 +48,13 @@
                                 <p class="f_20 f_bold f_green mb10">
                                     MiRAKUU Vol.<?php echo the_field('volid'); ?> </p>
                                 <p class="mb10"><?php echo the_field('date'); ?></p>
-                                <?php 
+                                <?php
                                     $category_terms = wp_get_object_terms( $post->ID,  'category' );
 
                                     if ( ! empty( $category_terms ) ) {
                                         if ( ! is_wp_error( $category_terms ) ) {
                                                 foreach( $category_terms as $term ) {
-                                                    echo '<p class="f_bold">'.$term->name.'</p>'; 
+                                                    echo '<p class="f_bold">'.$term->name.'</p>';
                                                 }
                                         }
                                     }

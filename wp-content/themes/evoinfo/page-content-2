@@ -12,16 +12,14 @@
                <div class="site_wrapper sp_indent15_lr" id="backnumber">
                   <ul class="col_3_sp_2 fix">
                     <?php
-                          $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
                           $posts = get_posts([
                             'post_type'			=> 'mirakuu',
-                            'posts_per_page'      => 6,
-                            'meta_key'         => '',
-                            'meta_value'       => '',
-                            'order'				=> 'DESC',
-                            'paged' => $paged,
+                            // 'posts_per_page'	=> 12,
+                            // 'meta_key'			=> 'volid',
+                            // 'orderby'			=> 'meta_value',
+                            'order'				=> 'DESC'
                           ]);
-                        
+                          $paged = get_query_var('paged') ? get_query_var('paged') : 1;
                     ?>
                     <?php if ($posts) : ?>
                         <?php foreach($posts as $post): ?>
@@ -64,18 +62,12 @@
                     <?php endif; ?>
 
                  </ul>
-                 <div class="mb50 fix">
-                     <?php if (function_exists('wp-pagenavi')) { wp_pagenavi(); } else { ?><div class="navigation">
-                       <div class="wp-pagenavi" role='navigation'>
-                           <?php wp_pagenavi(); ?>
-                           <span aria-current='page' class='current'><a href="https://t-www.evoinf.co.jp/media/content/?paged=1" class="page larger" title="1">1</a></span>
-                           <a href="https://t-www.evoinf.co.jp/media/content/?paged=2" class="page larger" title="2">2</a>
-                           <a href="https://t-www.evoinf.co.jp/media/content/?paged=3" class="page larger" title="3">3</a>
-                           <a href="https://t-www.evoinf.co.jp/media/content/?paged=4" class="page larger" title="4">4</a>
-                           <a class="nextpostslink" rel="next" aria-label="Next Page" href="https://t-www.evoinf.co.jp/media/content/?paged=">&raquo;</a>
-                       </div>
-                   </div><?php } ?>
-               </div>
+                 <!-- <div class="mb50 fix">
+                    <?php wp_pagenavi(); ?>
+
+                    <?php wp_pagenavi( array( 'query' => $post ) ); ?>
+                 </div> -->
+
                </div>
                  <div class="bg_contact">
        <div class="site_wrapper indent_content">
