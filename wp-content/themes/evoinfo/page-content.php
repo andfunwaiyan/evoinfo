@@ -12,34 +12,48 @@
                <div class="site_wrapper sp_indent15_lr" id="backnumber">
                   <ul class="col_3_sp_2 fix">
                     <?php
-                        $the_query = new WP_Query( [
-                           'post_type' => 'mirakuu',
-                         ]);
+                          $posts = get_posts(array(
+                            'post_type'			=> 'mirakuu',
+                            'posts_per_page'	=> 12,
+                            'meta_key'			=> 'volid',
+                            'orderby'			=> 'meta_value',
+                            'order'				=> 'DESC'
+                          ));
                     ?>
-                    <?php if ( $the_query->have_posts()) : ?>
-                        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                    <?php if ($posts) : ?>
+                        <?php foreach($posts as $post): ?>
                            <li class="matchHeight relative">
-                                <a href="https://www.mirakuupremium.com/mirakuu/mirakuu<?php echo get_field('volid'); ?>" target="_blank">
+                                <a href="https://www.mirakuupremium.com/mirakuu/mirakuu<?php echo the_field('volid'); ?>" target="_blank">
                                       <div class="fix col_1_1">
                                         <div class="left_area">
-                                            <figure><img width="233" height="330" src="<?php echo get_field('image_left'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
+                                            <figure><img width="233" height="330" src="<?php echo the_field('image_left'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
                                         </div>
                                         <div class="right_area">
-                                            <figure><img width="233" height="330" src="<?php echo get_field('image_right'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
+                                            <figure><img width="233" height="330" src="<?php echo the_field('image_right'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
                                         </div>
                                       </div>
                                       <div class="box_text">
                                           <p class="f_20 f_bold f_green mb10">
-                                            MiRAKUU Vol.<?php echo get_field('volid'); ?> </p>
-                                          <p class="mb10"><?php echo get_field('date'); ?></p>
-                                          <p class="f_bold"> <?php the_taxonomies(); ?></p>
+                                            MiRAKUU Vol.<?php echo the_field('volid'); ?> </p>
+                                          <p class="mb10"><?php echo the_field('date'); ?></p>
+                                          <?php 
+                                              $category_terms = wp_get_object_terms( $post->ID,  'category' );
+
+                                              if ( ! empty( $category_terms ) ) {
+                                                  if ( ! is_wp_error( $category_terms ) ) {
+                                                          foreach( $category_terms as $term ) {
+                                                              echo '<p class="f_bold">'.$term->name.'</p>'; 
+                                                          }
+                                                  }
+                                              }
+                                          ?>
                                           <div class="f_12">
-                                              <?php echo get_field('content'); ?>
+                                              <?php echo the_field('content'); ?>
                                           </div>
                                       </div>
                                 </a>
                             </li>
-                        <?php endwhile; ?>
+                        <?php endforeach; ?>
                         <?php wp_reset_postdata(); ?>
                     <?php else : ?>
                         <p><?php __('No Post'); ?></p>
