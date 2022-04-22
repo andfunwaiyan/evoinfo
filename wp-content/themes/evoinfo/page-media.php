@@ -27,7 +27,7 @@
               <?php
                 $posts = get_posts(array(
                     'post_type'			=> 'mirakuu',
-                    'posts_per_page'	=> 4,
+                    'numberposts'	=> 4,
                     'meta_key'			=> 'volid',
                     'orderby'			=> 'meta_value',
                     'order'				=> 'DESC'
