@@ -1,5 +1,13 @@
-<?php get_header(); ?>
-    <div class="bg_ttl bg_ttl_service">
+<?php get_header('media'); ?>
+<style>
+    .wp-pagenavi span, .wp-pagenavi a {
+        text-decoration: none;
+        border: 1px solid #BFBFBF;
+        padding: 3px 5px;
+        margin: 2px;
+    }
+</style>
+      <div class="bg_ttl bg_ttl_service">
                    <div class="site_wrapper">
                        <h1 class="ja">MiRAKUUバックナンバー</h1>
                        <h1 class="en">BACKNUMBER</h1>
@@ -12,16 +20,21 @@
                <div class="site_wrapper sp_indent15_lr" id="backnumber">
                   <ul class="col_3_sp_2 fix">
                     <?php
-                          $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+                          $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                          $showposts = 12;
                           $posts = get_posts([
-                            'post_type'			=> 'mirakuu',
-                            'posts_per_page'      => 6,
-                            'meta_key'         => '',
-                            'meta_value'       => '',
-                            'order'				=> 'DESC',
+                            'post_type'     => 'mirakuu',
+                            'posts_per_page'      => $showposts,
+                            'meta_key'      => 'volid',
+                            // 'orderby'     => 'meta_value_num',
+                            'order'       => 'DESC',
                             'paged' => $paged,
                           ]);
-                        
+                          // $total_posts_count = wp_count_posts();
+                          // $total_posts = $total_posts_count->publish;
+                          $total_posts = 13;
+                          $total_pages = ceil($total_posts / $showposts);
+                          // $total_pages = $total_pages + 1;
                     ?>
                     <?php if ($posts) : ?>
                         <?php foreach($posts as $post): ?>
@@ -65,18 +78,27 @@
 
                  </ul>
                  <div class="mb50 fix">
-                     <?php if (function_exists('wp-pagenavi')) { wp_pagenavi(); } else { ?><div class="navigation">
-                       <div class="wp-pagenavi" role='navigation'>
-                           <?php wp_pagenavi(); ?>
-                           <span aria-current='page' class='current'><a href="https://t-www.evoinf.co.jp/media/content/?paged=1" class="page larger" title="1">1</a></span>
-                           <a href="https://t-www.evoinf.co.jp/media/content/?paged=2" class="page larger" title="2">2</a>
-                           <a href="https://t-www.evoinf.co.jp/media/content/?paged=3" class="page larger" title="3">3</a>
-                           <a href="https://t-www.evoinf.co.jp/media/content/?paged=4" class="page larger" title="4">4</a>
-                           <a class="nextpostslink" rel="next" aria-label="Next Page" href="https://t-www.evoinf.co.jp/media/content/?paged=">&raquo;</a>
-                       </div>
-                   </div><?php } ?>
-               </div>
-               </div>
+                    <?php if($total_pages > 1 ) : ?>
+                      <div class='wp-pagenavi' role='navigation'>
+                          <span class='pages'><?php echo "$paged / $total_pages" ?></span>
+                          <?php if($paged > 1) : ?>
+                                <a href="<?php echo '?paged=' . ($paged -1); ?>">&laquo;</a>
+                            <?php endif ?>
+                            <?php for($i=1; $i<=$total_pages; $i++) : ?>
+                                <?php if ($paged == $i) : ?>
+                                  <span aria-current='page' class='current'><?php echo $i; ?></span>
+                                <?php else : ?>
+                                     <a class="page larger inactive"  href="<?php echo '?paged=' . $i; ?>"><?php echo $i;?></a>
+                                <?php endif ?>
+                            <?php endfor ?>
+                            <?php if ($paged < $total_pages) : ?>
+                                <a aria-label="Next Page"  href="<?php echo '?paged=' . ($paged + 1); ?>">&raquo;</a>
+                            <?php endif ?>
+                      </div>
+                    <?php endif ?>
+                </div>
+
+
                  <div class="bg_contact">
        <div class="site_wrapper indent_content">
 
@@ -97,7 +119,7 @@
            </div>
          </div>
        </div>
-     </div>            	<!-- brandsIntro -->
+     </div>             <!-- brandsIntro -->
      <div id="brandsIntro">
          <div class="container">
              <ul class="row brandBox">
