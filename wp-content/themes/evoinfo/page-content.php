@@ -30,9 +30,9 @@
                             'order'       => 'DESC',
                             'paged' => $paged,
                           ]);
-                          // $total_posts_count = wp_count_posts();
-                          // $total_posts = $total_posts_count->publish;
-                          $total_posts = 13;
+                          $total_posts_count = wp_count_posts('mirakuu');
+                          $total_posts = $total_posts_count->publish;
+                          // $total_posts = 13;
                           $total_pages = ceil($total_posts / $showposts);
                           // $total_pages = $total_pages + 1;
                     ?>
