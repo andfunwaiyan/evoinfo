@@ -10,6 +10,7 @@
   <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
+  <link href="/assets/css/bootstrap.css" rel="stylesheet">
   <!-- Inport css -->
   <link rel="stylesheet" href="/assets/themes/template03/css/common.css" />
   <link rel="stylesheet" href="/assets/themes/template03/css/base.css" />
@@ -26,7 +27,7 @@
   <!-- アイコンフォント css -->
   <link rel="stylesheet" href="/assets/themes/template03/css/whhg.css" />
   <link rel="stylesheet" href="/assets/css/main.css" />
-  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> -->
   <!-- トップページ専用 css -->
 
   <link rel="stylesheet" href="/media/wp-content/themes/template03/css/page_top.css">

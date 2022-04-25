@@ -1,4 +1,4 @@
-<?php get_header('media'); ?>
+<?php get_header(); ?>
     <style>
         .wp-pagenavi span, .wp-pagenavi a {
             text-decoration: none;
@@ -11,7 +11,7 @@
         }
         .wp-pagenavi a:hover, .wp-pagenavi span.current {
             border-color: #000;
-        }
+          }
     </style>
     <div class="bg_ttl bg_ttl_service">
          <div class="site_wrapper">
@@ -24,67 +24,64 @@
      <p>　</p>
 
      <div class="site_wrapper sp_indent15_lr" id="backnumber">
-        <ul class="col_3_sp_2 fix">
-          <?php
-                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                $showposts = 12;
-                $posts = get_posts([
-                    'post_type'     => 'mirakuu',
-                    'numberposts'      => $showposts,
-                    'meta_key'      => '',
-                    'meta_type' => 'NUMERIC',
-                    'meta_value' => 'volid',
-                    'orderby'     => 'meta_value',
-                    'order'       => 'DESC',
-                    'paged' => $paged,
-                ]);
-                $total_posts_count = wp_count_posts('mirakuu');
-                $total_posts = $total_posts_count->publish;
-                // $total_posts = 13;
-                $total_pages = ceil($total_posts / $showposts);
-                // $total_pages = $total_pages + 1;
-          ?>
-          <?php if ($posts) : ?>
-              <?php foreach($posts as $post): ?>
-                 <li class="matchHeight relative">
-                      <a href="https://www.mirakuupremium.com/mirakuu/mirakuu<?php echo the_field('volid'); ?>" target="_blank">
-                            <div class="fix col_1_1">
-                              <div class="left_area">
-                                  <figure><img width="233" height="330" src="<?php echo the_field('image_left'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
-                              </div>
-                              <div class="right_area">
-                                  <figure><img width="233" height="330" src="<?php echo the_field('image_right'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
-                              </div>
+         <?php
+               $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+               $showposts = '12';
+               $posts = get_posts([
+                   'post_type'			=> 'mirakuu',
+                   'posts_per_page'	=> $showposts,
+                   // 'meta_key'			  => 'volid',
+                   'meta_type'			=> 'NUMERIC',
+                   // 'orderby'        => 'meta_value_num',
+                   'order'				  => 'DESC',
+                   'paged'          => $paged
+               ]);
+               $total_posts_count = wp_count_posts('mirakuu');
+               $total_posts = $total_posts_count->publish;
+               $total_pages = ceil($total_posts / $showposts);
+         ?>
+        <?php if ($posts) : ?>
+          <ul class="col_3_sp_2 fix">
+            <?php foreach($posts as $post): ?>
+               <li class="matchHeight relative">
+                    <a href="https://www.mirakuupremium.com/mirakuu/mirakuu<?php echo the_field('volid'); ?>" target="_blank">
+                          <div class="fix col_1_1">
+                            <div class="left_area">
+                                <figure><img width="233" height="330" src="<?php echo the_field('image_left'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
                             </div>
-                            <div class="box_text">
-                                <p class="f_20 f_bold f_green mb10">
-                                  MiRAKUU Vol.<?php echo the_field('volid'); ?> </p>
-                                <p class="mb10"><?php echo the_field('date'); ?></p>
-                                <?php
-                                    $category_terms = wp_get_object_terms( $post->ID,  'category' );
-
-                                    if ( ! empty( $category_terms ) ) {
-                                        if ( ! is_wp_error( $category_terms ) ) {
-                                                foreach( $category_terms as $term ) {
-                                                    echo '<p class="f_bold">'.$term->name.'</p>';
-                                                }
-                                        }
-                                    }
-                                ?>
-                                <div class="f_12">
-                                    <?php echo the_field('content'); ?>
-                                </div>
+                            <div class="right_area">
+                                <figure><img width="233" height="330" src="<?php echo the_field('image_right'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
                             </div>
-                      </a>
-                  </li>
+                          </div>
+                          <div class="box_text">
+                              <p class="f_20 f_bold f_green mb10">
+                                MiRAKUU Vol.<?php echo the_field('volid'); ?> </p>
+                              <p class="mb10"><?php echo the_field('date'); ?></p>
+                              <?php
+                                  $category_terms = wp_get_object_terms( $post->ID,  'category' );
 
-              <?php endforeach; ?>
-              <?php wp_reset_postdata(); ?>
-          <?php else : ?>
-              <p><?php __('No Post'); ?></p>
-          <?php endif; ?>
+                                  if ( ! empty( $category_terms ) ) {
+                                      if ( ! is_wp_error( $category_terms ) ) {
+                                              foreach( $category_terms as $term ) {
+                                                  echo '<p class="f_bold">'.$term->name.'</p>';
+                                              }
+                                      }
+                                  }
+                              ?>
+                              <div class="f_12">
+                                  <?php echo the_field('content'); ?>
+                              </div>
+                          </div>
+                    </a>
+                </li>
 
-       </ul>
+            <?php endforeach; ?>
+            <?php wp_reset_postdata(); ?>
+          </ul>
+       <?php else : ?>
+          <p><?php __('No Post'); ?></p>
+       <?php endif; ?>
+
        <div class="mb50 fix">
           <?php if($total_pages > 1 ) : ?>
             <div class='wp-pagenavi' role='navigation'>

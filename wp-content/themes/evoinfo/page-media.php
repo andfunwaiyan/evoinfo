@@ -25,13 +25,14 @@
          <div class="mb80">
              <ul class="col_4 fix mb10" id="backnumber">
                 <?php
-                  $posts = get_posts(array(
-                      'post_type'			=> 'mirakuu',
-                      'numberposts'	=> 4,
-                      'meta_key'			=> 'volid',
-                      'orderby'			=> 'meta_value',
-                      'order'				=> 'DESC'
-                  ));
+                  $posts = get_posts([
+                      'post_type'			  => 'mirakuu',
+                      'posts_per_page'	=> '4',
+                      'meta_key'			  => 'volid',
+                      'meta_type'			  => 'NUMERIC',
+                      'orderby'         => 'meta_value_num',
+                      'order'			  	  => 'DESC',
+                  ]);
                 ?>
                 <?php if ($posts) : ?>
                     <?php foreach($posts as $post): ?>
