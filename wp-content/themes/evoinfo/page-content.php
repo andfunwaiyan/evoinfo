@@ -27,15 +27,16 @@
          <?php
                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                $showposts = '12';
-               $posts = get_posts([
+               $args = [
                    'post_type'			=> 'mirakuu',
                    'posts_per_page'	=> $showposts,
-                   // 'meta_key'			  => 'volid',
-                   'meta_type'			=> 'NUMERIC',
-                   // 'orderby'        => 'meta_value_num',
+                   'meta_key'			  => '',
+                   'meta_type'			=> '',
+                   'orderby'        => '',
                    'order'				  => 'DESC',
-                   'paged'          => $paged
-               ]);
+                   'paged'          => $paged,
+               ];
+               $posts = get_posts($args);
                $total_posts_count = wp_count_posts('mirakuu');
                $total_posts = $total_posts_count->publish;
                $total_pages = ceil($total_posts / $showposts);

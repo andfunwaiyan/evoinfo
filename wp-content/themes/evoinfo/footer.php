@@ -29,8 +29,6 @@
     </footer>
     <!--//footer-->
     <a href="#top" id="toTop"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/totop.png" alt="TOPに戻る" width="35" height="41"></a>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.js"></script>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/bootstrap.js"></script>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/site.js"></script>
+    <?php wp_footer(); ?>
 </body>
 </html>

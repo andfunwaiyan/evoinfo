@@ -26,7 +26,9 @@
 
   <!-- アイコンフォント css -->
   <link rel="stylesheet" href="/assets/themes/template03/css/whhg.css" />
+
   <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" />
   <!-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> -->
   <!-- トップページ専用 css -->
 
