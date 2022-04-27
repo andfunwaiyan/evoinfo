@@ -23,30 +23,33 @@
      <p>　</p>
      <p>　</p>
 
-     <div class="site_wrapper sp_indent15_lr" id="backnumber">
          <?php
                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-               $showposts = '12';
+               $showposts = 12;
                $args = [
-                   'post_type'			=> 'mirakuu',
-                   'posts_per_page'	=> $showposts,
-                   'meta_key'			  => '',
-                   'meta_type'			=> '',
-                   'orderby'        => '',
-                   'order'				  => 'DESC',
-                   'paged'          => $paged,
+                    'post_type'  => 'mirakuu',
+                    'numberposts' => $showposts,
+                    'paged'      => $paged,
+                    'meta_key'=> 'volid',
+                    'orderby' =>'meta_value_num',
+                    'order' => 'DESC',
+
                ];
+
                $posts = get_posts($args);
+               // echo "<pre>"; var_dump($posts); die();
                $total_posts_count = wp_count_posts('mirakuu');
                $total_posts = $total_posts_count->publish;
                $total_pages = ceil($total_posts / $showposts);
          ?>
         <?php if ($posts) : ?>
+        <div class="site_wrapper sp_indent15_lr" id="backnumber">
           <ul class="col_3_sp_2 fix">
             <?php foreach($posts as $post): ?>
-               <li class="matchHeight relative">
+                <li class="matchHeight relative">
                     <a href="https://www.mirakuupremium.com/mirakuu/mirakuu<?php echo the_field('volid'); ?>" target="_blank">
-                          <div class="fix col_1_1">
+                        <?php // echo "<pre>"; var_dump($post);?>
+                        <div class="fix col_1_1">
                             <div class="left_area">
                                 <figure><img width="233" height="330" src="<?php echo the_field('image_left'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
                             </div>
@@ -70,12 +73,11 @@
                                   }
                               ?>
                               <div class="f_12">
-                                  <?php echo the_field('content'); ?>
+                                  <?php echo the_field('mirakuu_content'); ?>
                               </div>
                           </div>
                     </a>
                 </li>
-
             <?php endforeach; ?>
             <?php wp_reset_postdata(); ?>
           </ul>
@@ -83,26 +85,27 @@
           <p><?php __('No Post'); ?></p>
        <?php endif; ?>
 
-       <div class="mb50 fix">
-          <?php if($total_pages > 1 ) : ?>
-            <div class='wp-pagenavi' role='navigation'>
-                <span class='pages'><?php echo "$paged / $total_pages" ?></span>
-                <?php if($paged > 1) : ?>
-                      <a href="<?php echo '?paged=' . ($paged -1); ?>">&laquo;</a>
-                  <?php endif ?>
-                  <?php for($i=1; $i<=$total_pages; $i++) : ?>
-                      <?php if ($paged == $i) : ?>
-                        <span aria-current='page' class='current'><?php echo $i; ?></span>
-                      <?php else : ?>
-                           <a class="page larger inactive"  href="<?php echo '?paged=' . $i; ?>"><?php echo $i;?></a>
-                      <?php endif ?>
-                  <?php endfor ?>
-                  <?php if ($paged < $total_pages) : ?>
-                      <a aria-label="Next Page"  href="<?php echo '?paged=' . ($paged + 1); ?>">&raquo;</a>
-                  <?php endif ?>
-            </div>
-          <?php endif ?>
-      </div>
+        <div class="mb50 fix">
+            <?php if($total_pages > 1 ) : ?>
+                <div class='wp-pagenavi' role='navigation'>
+                    <span class='pages'><?php echo "$paged / $total_pages" ?></span>
+                    <?php if($paged > 1) : ?>
+                        <a href="<?php echo '?paged=' . ($paged -1); ?>">&laquo;</a>
+                    <?php endif ?>
+                    <?php for($i=1; $i<=$total_pages; $i++) : ?>
+                        <?php if ($paged == $i) : ?>
+                            <span aria-current='page' class='current'><?php echo $i; ?></span>
+                        <?php else : ?>
+                            <a class="page larger inactive"  href="<?php echo '?paged=' . $i; ?>"><?php echo $i;?></a>
+                        <?php endif ?>
+                    <?php endfor ?>
+                    <?php if ($paged < $total_pages) : ?>
+                        <a aria-label="Next Page"  href="<?php echo '?paged=' . ($paged + 1); ?>">&raquo;</a>
+                    <?php endif ?>
+                </div>
+            <?php endif ?>
+        </div>
+    </div>
 
 
      <div class="bg_contact">
