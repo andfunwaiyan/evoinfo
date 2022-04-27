@@ -49,7 +49,7 @@
                 <li class="matchHeight relative">
                     <a href="https://www.mirakuupremium.com/mirakuu/mirakuu<?php echo the_field('volid'); ?>" target="_blank">
                         <?php // echo "<pre>"; var_dump($post);?>
-                        <div class="fix col_1_1">
+                        <div class="content-fix col_1_1">
                             <div class="left_area">
                                 <figure><img width="233" height="330" src="<?php echo the_field('image_left'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
                             </div>
