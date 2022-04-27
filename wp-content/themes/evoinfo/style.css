@@ -12,16 +12,15 @@ Description: This theme is for Evo Info Co.LTD website
 .nf-form-content input[type="submit"]{
     background: #50314a !important;
     border-color: #50314a !important;
-    margin: 0 auto !important;
-    width: 100% !important;
     font-size: 140% !important;
     font-weight: bold !important;
-    letter-spacing: 0.2em !important;
     color: #fff !important;
+    letter-spacing: 0.2em !important;
+    width: 80% !important;
+    display: flex !important;
     margin: 0 auto !important;
-    font-weight: bold !important;
-    letter-spacing: 0.2em !important;
-    color: #fff !important;
+    justify-content: center !important;
+    padding: 20px 0 40px 0 !important;
 
 }
 .label-left .nf-field-element{
@@ -94,4 +93,15 @@ Description: This theme is for Evo Info Co.LTD website
 .contactWrapper form textarea {
     height: 6em !important;
     border-radius: 4px !important;
+}
+.nf-pass.field-wrap .nf-field-element::after {
+    font-size: 24px !important;
+    height: 36px  !important;
+    line-height: 34px  !important;
+}
+.nf-form-fields-required{
+    display: none !important;
+}
+.nf-error-field-errors{
+    text-align: center !important;
 }
