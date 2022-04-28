@@ -54,13 +54,13 @@ Description: This theme is for Evo Info Co.LTD website
 .nf-form-content .listselect-wrap .nf-field-element div,
 .nf-form-content input.ninja-forms-field,
 .nf-form-content select.ninja-forms-field:not([multiple]) {
-  height: 34px !important;
-  border: 1px solid #ccc !important;
-  border-radius: 5px !important;
+    height: 34px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
 }
 .nf-form-content .list-select-wrap > div div::after {
-  height: 34px !important;
-  line-height: 34px !important;;
+    height: 34px !important;
+    line-height: 34px !important;
 }
 .ninja-forms-req-symbol {
     color: #453b39 !important;
@@ -77,7 +77,7 @@ Description: This theme is for Evo Info Co.LTD website
 }
 .nf-form-content .listselect-wrap .nf-field-element div,
 .nf-form-content .ninja-forms-field {
-  padding: 5px !important;
+    padding: 5px !important;
 }
 .nf-error.field-wrap .nf-field-element::after {
     font-size: 18px !important;
