@@ -60,7 +60,7 @@ Description: This theme is for Evo Info Co.LTD website
 }
 .nf-form-content .list-select-wrap > div div::after {
     height: 34px !important;
-    line-height: 34px !important;
+    line-height: 34px !important;;
 }
 .ninja-forms-req-symbol {
     color: #453b39 !important;
@@ -77,7 +77,7 @@ Description: This theme is for Evo Info Co.LTD website
 }
 .nf-form-content .listselect-wrap .nf-field-element div,
 .nf-form-content .ninja-forms-field {
-    padding: 5px !important;
+  padding: 5px !important;
 }
 .nf-error.field-wrap .nf-field-element::after {
     font-size: 18px !important;
@@ -104,4 +104,31 @@ Description: This theme is for Evo Info Co.LTD website
 }
 .nf-error-field-errors{
     text-align: center !important;
+}
+.list-select-wrap div::after {
+  color: #4F4F4F  !important;
+  font-size: 14px !important;
+}
+
+/* Contact Form 7 */
+.screen-reader-response li{
+    display: none !important;
+}
+.screen-reader-response p{
+    display: none !important;
+}
+.wpcf7-response-output{
+    text-align: center !important;
+}
+.ninja-forms-noscript-message{
+    display: none !important;
+}
+.help-block{
+    display: flex !important;
+    margin-top: -10px !important;
+}
+@media(max-width:900px){
+  .nf-form-content {
+      max-width: 100% !important;
+  }
 }

@@ -33,6 +33,7 @@
   <!-- トップページ専用 css -->
 
   <link rel="stylesheet" href="/media/wp-content/themes/template03/css/page_top.css">
+  <?php wp_head(); ?>
 </head>
 
 <body>
