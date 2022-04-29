@@ -6,7 +6,7 @@
                     <li><a href="<?php echo site_url('/'); ?>">ホーム</a></li>
                     <li><a href="<?php echo site_url('/about'); ?>">企業概要</a></li>
                     <li><a href="<?php echo site_url('/privacy'); ?>">個人情報保護方針</a></li>
-                    <li><a href="<?php echo site_url('/service'); ?>">サービス概要</a></li>
+                    <li><a href="<?php echo site_url('/services'); ?>">サービス概要</a></li>
                     <li><a href="<?php echo site_url('/contact'); ?>">お問い合わせ</a></li>
                 </ul>
             </div>
@@ -28,7 +28,7 @@
         </div>
     </footer>
     <!--//footer-->
-    <a href="#top" id="toTop"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/totop.png" alt="TOPに戻る" width="35" height="41"></a>
+    <a href="#top" id="toTop"><img src="/assets/img/totop.png" alt="TOPに戻る" width="35" height="41"></a>
     <?php wp_footer(); ?>
 </body>
 </html>

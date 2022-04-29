@@ -74,7 +74,7 @@
                       <a href="<?php echo site_url('/about'); ?>">企業概要</a>
                     </li>
                     <li id="service">
-                      <a href="<?php echo site_url('/service'); ?>">サービス概要</a>
+                      <a href="<?php echo site_url('/services'); ?>">サービス概要</a>
                     </li>
                     <li id="contact">
                       <a href="<?php echo site_url('/contact'); ?>">お問い合わせ</a>
