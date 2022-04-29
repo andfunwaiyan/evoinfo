@@ -120,15 +120,15 @@ Description: This theme is for Evo Info Co.LTD website
 .wpcf7-response-output{
     text-align: center !important;
 }
-.ninja-forms-noscript-message{
-    display: none !important;
-}
 .help-block{
     display: flex !important;
     margin-top: -10px !important;
 }
-@media(max-width:900px){
-  .nf-form-content {
-      max-width: 100% !important;
+.control-label{
+    padding-top: 15px !important;
+}
+@media screen and (max-width: 990px){
+  .control-label{
+      padding-top: 5px !important;
   }
 }
