@@ -94,14 +94,14 @@
      $(document).ready(function() {
           $('.evo_output').hide();
      });
-	  document.addEventListener( 'wpcf7mailsent', function( event ) {
-		  document.querySelectorAll("form.wpcf7-form > :not(.wpcf7-response-output)").forEach(el => {
-				 $('.evo_input').hide();
-				 $('.evo_output').show();
-				 $('#office').hide();
-
-			});
-	  }, false );
+	 document.addEventListener( 'wpcf7mailsent', function( event ) {
+		document.querySelectorAll("form.wpcf7-form > :not(.wpcf7-response-output)").forEach(el => {
+		    el.style.display = 'none';
+			$('.evo_input').hide();
+			$('.evo_output').show();
+			$('#office').hide();
+		});
+	 }, false );
 	
 	setInterval(add_date, 1000);    
     function add_date() {   
