@@ -21,13 +21,19 @@
           </div>
           <section class="contactWrapper">
             <div class="container">
-                <div class="col-xs-12">
-                  <h2><?php the_title(); ?></h2>
-                  <hr class="hrWhite" />
-                  <p class="lead pCenter">下記フォームに必要事項を入力の上送信してください。</p>
-                  <p class="pCenter">お問い合わせ頂いた内容につきましては、後ほど、担当者よりご連絡をさせていただきます。<br>なお、お問い合わせいただいた内容によっては、ご連絡までお時間がかかるものがございます。<br>あらかじめご了承ください。</p>
-                  <?php the_content(); ?>
-
+                <div class="col-xs-12 evo_input">
+					          <h2><?php the_title(); ?></h2>
+                    <hr class="hrWhite" />
+                    <p class="lead pCenter">下記フォームに必要事項を入力の上送信してください。</p>
+                    <p class="pCenter">お問い合わせ頂いた内容につきましては、後ほど、担当者よりご連絡をさせていただきます。      <br>なお、お問い合わせいただいた内容によっては、ご連絡までお時間がかかるものがございます。<br>あらかじめご了承ください。</p>
+                     <?php the_content(); ?>
+                </div>
+				        <div class="col-xs-12 evo_output">
+                    <h2><?php the_title(); ?> &nbsp;&nbsp;送信完了</h2>
+                    <hr class="hrWhite" />
+                    <p class="lead pCenter">お問い合わせ頂きありがとうございます。</p>
+                    <p class="pCenter">後ほど、担当者よりご連絡をさせていただきます。<br>今しばらくお待ちくださいますようよろしくお願い申し上げます。<br><br>
+                    なお、お問い合わせいただいた内容によっては、ご連絡までお時間がかかるものがございます。予めご了承ください。</p>
                 </div>
             </div>
           </section>
@@ -84,3 +90,36 @@
       <?php endif; ?>
   </div>
 <?php get_footer(); ?>
+<script>
+     $(document).ready(function() {
+          $('.evo_output').hide();
+     });
+	  document.addEventListener( 'wpcf7mailsent', function( event ) {
+		  document.querySelectorAll("form.wpcf7-form > :not(.wpcf7-response-output)").forEach(el => {
+				 $('.evo_input').hide();
+				 $('.evo_output').show();
+				 $('#office').hide();
+
+			});
+	  }, false );
+	
+	setInterval(add_date, 1000);    
+    function add_date() {   
+		var today = new Date();
+		var yyyy = today.getFullYear();
+		var mm = String(today.getMonth() + 1).padStart(2, '0');
+		var dd = String(today.getDate()).padStart(2, '0');
+		var date = yyyy + '/' + mm + '/' + dd;
+		//var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+		var H = String(today.getHours()).padStart(2, '0');
+		var i = String(today.getMinutes()).padStart(2, '0');
+		var s = String(today.getSeconds()).padStart(2, '0');
+		//var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+		var time = H + ':' + i + ':' + s;
+		var dateTime = date+' '+time;
+		jQuery('input#submissiondate').val(dateTime); 
+	}
+	
+	
+</script>
+

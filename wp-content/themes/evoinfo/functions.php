@@ -1,20 +1,9 @@
 <?php
-  // function evoinfo_register_styles(){
-  //
-  //      $version = wp_get_theme()->get( 'Version');
-  //
-  //      $filemtime = filemtime( get_template_directory() . '/assets/css/main.css' );
-  //      wp_enqueue_style('evoinfo-style', get_template_directory_uri() ."/assets/css/main.css", array('evoinfo-bootstrap'), $filemtime, 'all' );
-  //      wp_enqueue_style('evoinfo-font', "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap", array(), '5.1.3', 'all' );
-  //      wp_enqueue_style('evoinfo-bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css", array(), '5.1.3', 'all' );
-  //      wp_enqueue_style('evoinfo-bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css", array(), '5.1.3', 'all' );
-  //  }
-
-   // add_action( 'wp_enqueue_scripts', 'evoinfo_register_styles');
    function evoinfo_register_scripts(){
 
        wp_enqueue_script('evoinfo-bootstrap', get_template_directory_uri() ."/assets/js/bootstrap.js", array(), '5.1.3', true );
-       wp_enqueue_script('evoinfo-totop', get_template_directory_uri() ."/assets/js/jquery.js", array(), '1.0', true );
+	  
+//        wp_enqueue_script('evoinfo-totop', get_template_directory_uri() ."/assets/js/jquery.js", array(), '1.0', true );
        wp_enqueue_script('evoinfo-site', get_template_directory_uri() ."/assets/js/site.js", array(), '1.0', true );
    }
   add_action( 'wp_enqueue_scripts', 'evoinfo_register_scripts');
@@ -49,13 +38,29 @@
   }
   add_action('init', 'evoinfo_custom_taxonomy');
 
-  function wpmudev_ninja_form_display_enqueue_scripts(){
-  	if( wp_doing_ajax() ){
-  		add_action( 'nf_display_enqueue_scripts', function(){
-  			global $wp_scripts, $wp_styles;
-  			$wp_scripts->do_items();
-  			$wp_styles->do_items();
-  		});
-  	}
+
+   /*/---- Validate contact Form  ----/*/
+
+  function custom_name_validation_filter( $result, $tag ) {
+
+	  if ( "kana" == $tag->name ) {
+		  $name = isset( $_POST[$tag->name] ) ? $_POST[$tag->name]  : '';
+
+		  if ( $name != "" && !mb_ereg("^[ァ-ヶー]+$",$name) ) {
+			  $result->invalidate( $tag, "フリガナは全角カナで入力してください。" );
+		  }
+	  }
+	  if ( "fax" == $tag->name ) {
+		  $name = isset( $_POST[$tag->name] ) ? $_POST[$tag->name]  : '';
+
+		  if ( $name != "" && !preg_match("/^\+?[0-9]{7,}$/",$name) ) {
+			  $result->invalidate( $tag, "FAX番号は半角数値もしくは、「-」「+」のみで入力してください。" );
+		  }
+	  }  
+	  return $result;
   }
-  add_action( 'admin_init', 'wpmudev_ninja_form_display_enqueue_scripts' );
+  add_filter( 'wpcf7_validate_text', 'custom_name_validation_filter', 20, 2 );
+  add_filter( 'wpcf7_validate_text*', 'custom_name_validation_filter', 20, 2 );
+
+
+  
