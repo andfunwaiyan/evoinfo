@@ -11,7 +11,7 @@
         }
         .wp-pagenavi a:hover, .wp-pagenavi span.current {
             border-color: #000;
-          }
+        }
     </style>
     <div class="bg_ttl bg_ttl_service">
          <div class="site_wrapper">
@@ -44,19 +44,24 @@
          ?>
         <?php if ($posts) : ?>
         <div class="site_wrapper sp_indent15_lr" id="backnumber">
-          <ul class="col_3_sp_2 fix">
+          <ul class="grid-container">
             <?php foreach($posts as $post): ?>
-                <li class="matchHeight relative">
-                    <a href="https://www.mirakuupremium.com/mirakuu/mirakuu<?php echo the_field('volid'); ?>" target="_blank">
+                <li class="grid-item matchHeight relative">
+					<?php
+						$vid = get_field('volid'); 
+					    $link_num = sprintf("%02d", $vid);
+					?>
+                    <a href="https://www.mirakuupremium.com/mirakuu/mirakuu<?php echo $link_num; ?>" target="_blank">
                         <?php // echo "<pre>"; var_dump($post);?>
-                        <div class="content-fix col_1_1">
+						  <div class="fix col_1_1">
                             <div class="left_area">
-                                <figure><img width="233" height="330" src="<?php echo the_field('image_left'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
+                                <figure><img width="233" height="330" src="<?php echo the_field('image_left'); ?>" class="attachment-large size-large content-img" alt="" loading="lazy" /></figure>
                             </div>
                             <div class="right_area">
-                                <figure><img width="233" height="330" src="<?php echo the_field('image_right'); ?>" class="attachment-large size-large" alt="" loading="lazy" /></figure>
+                                <figure><img width="233" height="330" src="<?php echo the_field('image_right'); ?>" class="attachment-large size-large content-img" alt="" loading="lazy" /></figure>
                             </div>
                           </div>
+                      
                           <div class="box_text">
                               <p class="f_20 f_bold f_green mb10">
                                 MiRAKUU Vol.<?php echo the_field('volid'); ?> </p>

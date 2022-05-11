@@ -27,10 +27,10 @@
                 <?php
                   $posts = get_posts([
                       'post_type'			  => 'mirakuu',
-                      'posts_per_page'	=> '4',
+                      'posts_per_page'	      => '4',
                       'meta_key'			  => 'volid',
                       'meta_type'			  => 'NUMERIC',
-                      'orderby'         => 'meta_value_num',
+                      'orderby'               => 'meta_value_num',
                       'order'			  	  => 'DESC',
                   ]);
                 ?>
@@ -60,8 +60,8 @@
                                           }
                                       }
                                   ?>
-                                  <div class="f_12">
-                                      <?php echo the_field('content'); ?>
+                                  <div class="mira_con f_12">
+                                      <?php echo the_field('mirakuu_content'); ?>
                                   </div>
                             </a>
                         </li>
@@ -167,3 +167,6 @@
    </div>
    <!-- //brandsIntro -->
 <?php get_footer(); ?>
+<script>
+    $('.mira_con').find('br').remove();
+</script>

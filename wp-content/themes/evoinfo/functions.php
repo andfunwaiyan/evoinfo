@@ -3,7 +3,7 @@
 
        wp_enqueue_script('evoinfo-bootstrap', get_template_directory_uri() ."/assets/js/bootstrap.js", array(), '5.1.3', true );
 	  
-//        wp_enqueue_script('evoinfo-totop', get_template_directory_uri() ."/assets/js/jquery.js", array(), '1.0', true );
+       wp_enqueue_script('evoinfo-totop', get_template_directory_uri() ."/assets/js/jquery.js", array(), '1.0', true );
        wp_enqueue_script('evoinfo-site', get_template_directory_uri() ."/assets/js/site.js", array(), '1.0', true );
    }
   add_action( 'wp_enqueue_scripts', 'evoinfo_register_scripts');
@@ -53,7 +53,7 @@
 	  if ( "fax" == $tag->name ) {
 		  $name = isset( $_POST[$tag->name] ) ? $_POST[$tag->name]  : '';
 
-		  if ( $name != "" && !preg_match("/^\+?[0-9]{7,}$/",$name) ) {
+		  if ( $name != "" && !preg_match("/^\+?[0-9\-?]+$/",$name) ) {
 			  $result->invalidate( $tag, "FAX番号は半角数値もしくは、「-」「+」のみで入力してください。" );
 		  }
 	  }  
